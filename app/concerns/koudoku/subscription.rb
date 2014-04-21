@@ -84,7 +84,7 @@ module Koudoku::Subscription
               # create a customer at that package level.
               customer = Stripe::Customer.create(customer_attributes)
               
-            rescue Stripe::CardError => card_error
+            rescue => card_error
               errors[:base] << card_error.message
               card_was_declined
               return false
